@@ -13,50 +13,8 @@ export class ChatComponent implements OnInit {
     {
       type: 'incoming',
       image: this.CHATGPTIMAGE,
-      message: 'Test which is a new approach to have all solutions',
-      time: '11:01 AM | June 9',
-    },
-    {
-      type: 'outgoing',
-      image: '',
-      message: 'Test which is a new approach to have all solutions',
-      time: '11:01 AM | June 9',
-    },
-    {
-      type: 'incoming',
-      image: this.CHATGPTIMAGE,
-      message: 'Test, which is a new approach to have',
-      time: '11:01 AM | Yesterday',
-    },
-    {
-      type: 'outgoing',
-      image: '',
-      message: 'Apollo University, Delhi, India Test',
-      time: '11:01 AM | Today',
-    },
-    {
-      type: 'incoming',
-      image: this.CHATGPTIMAGE,
-      message: 'Test, which is a new approach to have',
-      time: '11:01 AM | Yesterday',
-    },
-    {
-      type: 'outgoing',
-      image: '',
-      message: 'Apollo University, Delhi, India Test',
-      time: '11:01 AM | Today',
-    },
-    {
-      type: 'incoming',
-      image: this.CHATGPTIMAGE,
-      message: 'Test, which is a new approach to have',
-      time: '11:01 AM | Yesterday',
-    },
-    {
-      type: 'outgoing',
-      image: '',
-      message: 'Apollo University, Delhi, India Test',
-      time: '11:01 AM | Today',
+      message: 'Hey there! I am TouhemiAI. Ask me anything!',
+      time: this.generateDate(),
     },
   ];
   constructor(private requestService: FlaskRequestService) {}
