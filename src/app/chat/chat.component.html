@@ -1,0 +1,42 @@
+<body>
+    <div class="container">
+        <!-- aa  add container Title "TouhemiAI"-->
+        <div class="container-title text-center">
+            <h1>TouhemiAI</h1>
+        </div>
+        <div class="messaging">
+            <div class="inbox_msg">
+                <div class="mesgs">
+                    <div class="msg_history">
+                        <div class="msg_history" id="chat-container">
+                            <div *ngFor="let message of messages" class="{{ message.type }}_msg">
+                                <div class="incoming_msg_img" *ngIf="message.type === 'incoming'">
+                                    <img src="https://openai.com/content/images/2022/05/openai-avatar.png" alt="sunil" />
+                                </div>
+                                <div class="received_msg" *ngIf="message.type === 'incoming'">
+                                    <div class="received_withd_msg">
+                                        <p>{{ message.message }}</p>
+                                        <span class="time_date">{{ message.time }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="sent_msg" *ngIf="message.type === 'outgoing'">
+                                    <p>{{ message.message }}</p>
+                                    <span class="time_date">{{ message.time }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="type_msg">
+                        <div class="input_msg_write">
+                            <input type="text" class="write_msg" placeholder="Type a message" [(ngModel)]="userInput" (keydown.enter)="sendUserInput()" />
+                            <button class="msg_send_btn" type="button" (click)="sendUserInput()">
+                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+              </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
