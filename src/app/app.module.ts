@@ -9,7 +9,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SpeechSynthesisModule } from '@ng-web-apis/speech';
+import {
+  TuiDataListModule,
+  tuiIconsPathFactory,
+  TUI_ICONS_PATH,
+  TuiRootModule
+} from '@taiga-ui/core';
+import { TuiSelectModule } from '@taiga-ui/kit';
 @NgModule({
   declarations: [AppComponent, ChatComponent],
   imports: [
@@ -20,9 +28,27 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     NgbModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule,
+    ReactiveFormsModule,
+    SpeechSynthesisModule,
+    TuiDataListModule,
+    TuiSelectModule,
+    TuiRootModule
   ],
-  providers: [],
+  providers: [
+/*     {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy,
+    },
+    {
+      provide: APP_BASE_HREF,
+      useValue: '',
+    }, */
+    {
+      provide: TUI_ICONS_PATH,
+      useValue: tuiIconsPathFactory('assets/taiga-ui/icons/'),
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

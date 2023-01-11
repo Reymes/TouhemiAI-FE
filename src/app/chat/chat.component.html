@@ -28,6 +28,14 @@
                         </div>
                     </div>
                     <div class="type_msg">
+                        <div class="Voice-Rec">
+                            <div class="input-group-prepend" (click)="startRecording()" *ngIf="!isUserSpeaking">
+                                <span class="input-group-text">record</span>
+                            </div>
+                            <button class="active-mic me-1" *ngIf="isUserSpeaking" (click)="stopRecording()">
+                <div class="pulse-ring">stop</div>
+              </button>
+                        </div>
                         <div class="input_msg_write">
                             <input type="text" class="write_msg" placeholder="Type a message" [(ngModel)]="userInput" (keydown.enter)="sendUserInput()" />
                             <button class="msg_send_btn" type="button" (click)="sendUserInput()">
@@ -37,6 +45,23 @@
                     </div>
                 </div>
             </div>
+            <textarea class="textarea" [(ngModel)]="text" [waTextToSpeech]="text | waUtterance : options" [waTextToSpeechPaused]="paused" (waTextToSpeechEnd)="onEnd()" hidden="true">
+      </textarea>
+            <!-- <div class="buttons">
+                <button tuiButton type="button" (click)="onClick()">
+                    {{ paused ? 'Play' : 'Pause' }}
+                </button> Tip: say «Show sidebar»
+            </div> -->
         </div>
+        <tui-root>
+            <tui-select [valueContent]="nameExtractor" [(ngModel)]="voice">
+                Switch voice:
+                <tui-data-list *tuiDataList>
+                    <button *ngFor="let item of voices$ | async; trackBy: voiceByName" tuiOption [value]="item">
+                    {{ item.name }}
+                </button>
+                </tui-data-list>
+            </tui-select>
+        </tui-root>
     </div>
 </body>
